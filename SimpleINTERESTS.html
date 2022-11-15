@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Simples Interest</title>
+	<meta name="viweport" content="width=device-width,initial-scale=1">
+	<title>Havartech-BMI Calculator</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="SI.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row"></br></br></br>
+				<div id="calculate1" class="col-md-12 col-sm-12"></br>
+					<h2>SIMPLE INTEREST CALCULATOR</h2>
+					<div class="calcu">
+					<label ><h3>PRINCIPAL:</h3></label>
+					<input id="principals" type="text" placeholder="Enter the Amount:"></br>
+					<label ><h3>RATE(%):</h3></label>
+					<input id="rates" type="text" placeholder="Enter the Rate(%):"></br>
+					<label ><h3>TIME(MONTH):</h3></label>
+					<input id="times" type="text" placeholder="Enter the Month:"></br></br><br>
+					<button type="button" onClick="simpleint()"class="btn"><b>Calculate</b></button>
+					<button type="button" onClick="document.getElementById('principals').value='',document.getElementById('rates').value='',document.getElementById('times').value='',document.getElementById('results').innerHTML='',document.getElementById('totals').innerHTML='' "class="btn clear"><b>Clear</b></button>
+					<button class="btn Refresh"type="button" onClick="Refresh()"><b>Refresh</b></button></br>
+					<p id="error"></p>
+					<p class="total"><b>Interest is:</b><span id="results"></span></p>
+					<p class="total"><b>Total Amount is:</b><span id="totals"></span></p>
+				</div>
+			</div>
+				
+		</div>
+
+	</div>
+<script>
+		function simpleint(){
+			Principals=document.getElementById("principals").value;
+			Rates=document.getElementById("rates").value;
+			Times=document.getElementById("times").value;
+			Calculates=((Principals*Rates*Times)/100).toFixed(2);
+			Totals=Number(Principals)+Number(Calculates)
+			document.getElementById("results").innerHTML=Calculates;
+			document.getElementById("totals").innerHTML=Totals;
+			if(Principals=="" && Rates=="" && Times=="")
+			{
+				document.getElementById("error").innerHTML="Please Enter the value of principal,Rate,Time "
+			}
+		}
+		function Refresh(){
+			if(confirm("Are you sure want to Refresh this page?"))
+			{
+				location.reload();
+			}
+		}
+</script>
+</body>
+</html>
